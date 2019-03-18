@@ -47,7 +47,7 @@ module ServerCleanup
     def cookbooks
       ui.msg "Searching for unused cookboks versions..."
       all_cookbooks = rest.get_rest("/cookbooks?num_versions=all")
-      latest_cookbooks = rest.get_rest("/cookbooks?latest")
+      latest_cookbooks = rest.get_rest("/cookbooks?num_versions=3")
       
       # All cookbooks
       cbv = all_cookbooks.inject({}) do |collected, ( cookbook, versions )|
